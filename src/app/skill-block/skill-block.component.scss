@@ -1,0 +1,51 @@
+.skill-block{
+    width: 100px;
+        height: 100px;
+        background-size: 100px 100px;
+    &.mobile{
+        width: 70px;
+        height: 70px;
+        background-size: 70px 70px;
+    }
+}
+.html{
+    background-image: url(../../../public/html.png);
+    //background-size: 100px 100px;
+}
+.css {
+    background-image: url(../../../public/css3.png);
+    //background-size: 100px 100px;
+}
+.js {
+    background-image: url(../../../public/javascript\ \(1\).png);
+    //background-size: 100px 100px;
+}
+.ts {
+    background-image: url(../../../public/typescript.svg);
+    //background-size: 100px 100px;
+}
+.sass {
+    background-image: url(../../../public/sass.png);
+    //background-size: 100px 100px;
+}
+.angular {
+    background-image: url(../../../public/angularjs.png);
+    //background-size: 100px 100px;
+}
+.rxjs{
+    background-image: url(../../../public/rxjs.svg);
+    //background-size: 100px 100px;
+}
+.c{
+    background-image: url(../../../public/c.svg);
+    //background-size: 100px 100px;
+}
+.csharp{
+    background-image: url(../../../public/csharp.png);
+    //background-size: 100px 100px;
+}
+.sql{
+    background-image: url(../../../public/sql.png);
+    //background-size: 100px 100px;
+}
+
