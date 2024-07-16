@@ -1,0 +1,95 @@
+    .nav-bar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        gap: 2rem;
+        position: sticky;
+        top: 0;
+
+        &>:first-child {
+            padding-top: 3rem;
+        }
+
+        .icon-wrapper .linkedin {
+            width: 15px;
+            height: 15px;
+        }
+
+        .icon-wrapper .mail {
+            width: 20px;
+            height: 20px;
+        }
+
+        .icon-wrapper .instagram {
+            width: 20px;
+            height: 20px;
+        }
+
+        &.bg-black{
+            color: white;
+            // background-color: black;
+            // transition: background-color ease-in 0.5s;
+            .icon-wrapper
+            .instagram,.linkedin,.mail{
+                fill: white;
+            }
+        }
+        &.bg-white {
+            color: black;
+            // background-color: white;
+            // transition: background-color ease-in 0.5s;
+            .icon-wrapper .instagram,
+                .linkedin,
+                .mail {
+                    fill: black;
+                }
+        }
+
+        .skill-section-navigator {
+            .navigation-link{
+                color: white;
+                font-family: 'IBM Plex Mono',
+                    'Menlo',
+                    'DejaVu Sans Mono',
+                    'Bitstream Vera Sans Mono',
+                    Courier,
+                    monospace;
+                font-size: 0.75rem;
+                text-decoration: none;
+            }
+            bottom: 70px;
+            position: fixed;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        .line{
+            height: 60px;
+            width: 2px;
+            background-color: rgb(75, 75, 75);
+            margin-top: 12px;
+            margin-left: 2px;
+            bottom: 0px;
+            position: fixed;
+            overflow: hidden;
+        }
+        .light {
+            height: 50px;
+            width: 100%;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: moveLight 1.5s linear infinite;
+        }
+
+        @keyframes moveLight {
+            0% {
+                top: -100%;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+    }

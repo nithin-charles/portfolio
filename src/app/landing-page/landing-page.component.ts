@@ -1,42 +1,65 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { SkillSectionComponent } from '../skill-section/skill-section.component';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { SkillBlockComponent } from '../skill-block/skill-block.component';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { HomePageComponent } from '../home-page/home-page.component';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [SkillSectionComponent, SkillBlockComponent],
+  imports: [
+    SkillSectionComponent,
+    SkillBlockComponent,
+    NavBarComponent,
+    HomePageComponent,
+  ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 })
-export class LandingPageComponent implements AfterViewInit {
-  public greetings: string[] = ['hi', 'Vanakam', 'bonjur', 'Hola'];
-  public greet: string = 'hi';
+export class LandingPageComponent {
+  public navBarColor: string = 'black';
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const homeSection = document.getElementById('home');
+    const skillSection = document.getElementById('skill');
+    const navbar = document.querySelector('app-nav-bar');
 
-  @ViewChild('skill_section', { static: false })
-  skillSectionComponent?: ElementRef;
+    if (homeSection && skillSection && navbar) {
+      const homeRect = homeSection.getBoundingClientRect();
+      const skillRect = skillSection.getBoundingClientRect();
 
-  constructor(private router: Router) {
-    let i = 0;
-    setInterval(() => {
-      if (i >= this.greetings.length) {
-        i = 0;
+      // if (
+      //   homeRect.top >= 0 &&
+      //   Math.floor(homeRect.bottom) <= Math.floor(window.innerHeight)
+      // ) {
+      //   this.navBarColor = 'black';
+      //   console.log(this.navBarColor);
+      // } else if (
+      //   skillRect.top >= 0 &&
+      //   Math.floor(skillRect.bottom) <= Math.floor(window.innerHeight * 1.5)
+      // ) {
+      //   this.navBarColor = 'white';
+      //   console.log(this.navBarColor);
+      // }
+
+      if (
+        skillRect.top >= 0 &&
+        Math.floor(skillRect.bottom) <= Math.floor(window.innerHeight * 1.5)
+      ) {
+        this.navBarColor = 'white';
+        console.log(this.navBarColor);
+      } else {
+        this.navBarColor = 'black';
       }
-      this.greet = this.greetings[i++];
-    }, 2000);
-    console.log(this.skillSectionComponent);
+    }
   }
 
-  ngAfterViewInit() {
-    // ViewChild is initialized here
-    console.log(this.skillSectionComponent);
+  public isWhite(): boolean {
+    return this.navBarColor === 'white';
   }
 
-  public nagivateToSkillSection(): void {
-    this.skillSectionComponent?.nativeElement.scrollIntoView({
-      behavior: 'smooth',
-    });
-    //this.router.navigate([], { fragment: 'skill-section' });
+  public isBlack(): boolean {
+    return this.navBarColor === 'black';
   }
 }
