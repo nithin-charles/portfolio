@@ -27,8 +27,6 @@
 
   &.bg-black {
     color: white;
-    // background-color: black;
-    // transition: background-color ease-in 0.5s;
     .icon-wrapper .instagram,
     .linkedin,
     .mail {
@@ -37,8 +35,6 @@
   }
   &.bg-white {
     color: white;
-    // background-color: white;
-    // transition: background-color ease-in 0.5s;
     .icon-wrapper .instagram,
     .linkedin,
     .mail {
@@ -49,7 +45,6 @@
   .skill-section-navigator {
     bottom: 0px;
     position: fixed;
-    //background-color: aqua;
     height: 200px;
     width: 50px;
     display: flex;
@@ -98,8 +93,3 @@
     }
   }
 }
-// @media (max-width: 400px) {
-//   .navigation-link {
-//     left: 1rem !important;
-//   }
-// }
