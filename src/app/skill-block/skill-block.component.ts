@@ -18,7 +18,6 @@ export class SkillBlockComponent implements OnInit {
       .observe([Breakpoints.Handset])
       .subscribe((result) => {
         this.isMobile = result.matches;
-        console.log(this.isMobile);
       });
   }
 }

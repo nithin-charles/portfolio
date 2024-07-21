@@ -1,91 +1,35 @@
-.main-container{
-    width:100%;
+.main-container {
+  width: 100%;
+  display: flex;
+  &.black {
+    background-color: black;
+    transition: background-color ease-in 0.5s;
+  }
+  &.white {
+    background-color: black;
+    transition: background-color ease-in 0.5s;
+  }
+  app-nav-bar {
+    width: 10%;
+    &.hide {
+      width: 0;
+      display: none;
+    }
+  }
+  .content-list {
     display: flex;
-    .nav-bar-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height:100vh;
-        width: 10%;
-        gap: 2rem;
-        position: sticky;
-        top:0;
-
-        &>:first-child{
-            padding-top: 3rem;
-        }
-        color: white;
-        background-color: black;
-
-        .icon-wrapper
-        .linkedin{
-            width: 15px;
-            height: 15px;
-            fill:white;
-        }
-
-        .icon-wrapper .mail {
-            width: 20px;
-            height: 20px;
-            fill: white;
-        }
-
-        .icon-wrapper .instagram {
-            width: 20px;
-            height: 20px;
-            fill: white;
-        }
-
-        .skill-section-navigator{
-                color: white;
-                font-family: 'IBM Plex Mono',
-                        'Menlo',
-                        'DejaVu Sans Mono',
-                        'Bitstream Vera Sans Mono',
-                        Courier,
-                        monospace;
-                        font-size: 0.75rem;
-                bottom: 66px;
-                position: fixed;
-                text-decoration: none;
-                cursor: pointer;
-        }
+    flex-direction: column;
+    width: 90%;
+    &.expand {
+      width: 100%;
     }
-    .content-list{
-        display: flex;
-        flex-direction: column;
-        width:90%;
-    }
-    .content-container{
-        background-color: black;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        color: white;
-        align-items: center;
-        justify-content: center;
-        .content-wrapper{
-            display: flex;
-            flex-direction: column;
-            width: 80%;
-            font-family: 'IBM Plex Mono',
-                'Menlo',
-                'DejaVu Sans Mono',
-                'Bitstream Vera Sans Mono',
-                Courier,
-                monospace;
-            font-size: 2rem;
-            .info{
-                padding-top: 1rem;
-                font-size: 1rem;
-            }
-        }
-    }
+  }
 }
-
-.main-container::-webkit-scrollbar {
-    display: none;
-    /* For Chrome, Safari, and Opera */
+@media (max-width: 500px) {
+  app-nav-bar {
+    width: 25% !important;
+    &.isMobile {
+      width: 0 !important;
+    }
+  }
 }
-

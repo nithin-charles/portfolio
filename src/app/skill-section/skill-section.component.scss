@@ -1,68 +1,136 @@
-.skill-container{
-    display: flex;
+.skill-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  text-decoration: none;
+  background-color: transparent;
+  font-family: "IBM Plex Mono", "Menlo", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", Courier, monospace;
+  font-size: 0.75rem;
+  color: white;
+  .about-me {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
-    height: 100vh;
-    text-decoration: none;
-    background-color: black;
-    .my-skill-wrapper{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: end;
-        width: 50%;
-        align-items: center;
-        justify-content: center;
+    height: 15%;
+    justify-content: space-evenly;
+    .about-me-text,
+    .about-me-desc {
+      width: 50%;
+      min-width: 300px;
+      box-sizing: border-box;
+      align-content: center;
+      padding-left: 10px;
+    }
+  }
 
-        .skill-card{
-            width:80%;
-            height: 70vh;
-            background-color: black;
+  .skill-collection-table {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    height: 100%;
+    width: 100%;
+    .image-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .img-holder {
+        background-image: url(../../../public/nithin-charles.jpeg);
+        width: 80%;
+        height: 90%;
+        background-size: cover;
+        background-position: center;
+        border-radius: 30px;
+        transition: transform 1s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    .skill-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .skill-holder {
+        width: 80%;
+        height: 90%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 25%;
+        .front-end,
+        .back-end,
+        .db,
+        .hobby {
+          border: 1px solid white;
+          color: white;
+          width: 100%;
+          height: 70%;
+          border-radius: 30px;
+          margin: 5px 0;
+          &:hover {
+            background-color: #f7f7f7;
+            color: black;
+          }
+        }
+        .front-end,
+        .back-end,
+        .db,
+        .hobby {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          .content-wrapper {
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            color: azure;
-            font-size: larger;
-        }
-    }
-    .skill-block-wrapper{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: end;
-        width:50%;
-        margin-right: 5%;
-    }
-    .skill-block-container-1{
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        gap: 1rem;
-        animation: scroll-vertical 15s linear infinite;
-        height: 100vh;
-    }
-    .skill-block-container-2 {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        gap: 1rem;
-        animation: scroll-vertical-2 15s linear infinite;
-        height: 100vh;
-    }
-    @keyframes scroll-vertical {
-        0% {
-            transform: translateY(0);
-        }
+            height: 100%;
+            width: fit-content;
+            margin: 0 20px;
+            //font-size: 1rem;
 
-        100% {
-            transform: translateY(-100%);
-        }
-    }
+            .title {
+              font-weight: bold;
+              margin-left: 5px;
+              font-size: 1rem;
+            }
 
-    @keyframes scroll-vertical-2 {
-        0% {
-            transform: translateY(-100%);
+            .f-item-wrapper {
+              display: flex;
+              flex-wrap: wrap;
+              font-size: 0.85rem;
+              .f-item {
+                padding-left: 5px;
+              }
+            }
+          }
         }
-
-        100% {
-            transform: translateY(0);
-        }
+      }
     }
-    overflow: hidden;
+  }
+}
+@media (max-width: 1050px) {
+  .about-me {
+    grid-template-columns: 1fr !important;
+    padding-top: 5%;
+    place-items: center;
+  }
+  .skill-collection-table {
+    grid-template-columns: 100% !important;
+  }
+  .image-wrapper {
+    order: -1;
+    .img-holder {
+      background-image: url(../../../public/nithin-charles-2.jpeg) !important;
+      width: 50% !important;
+    }
+  }
+  .content-wrapper {
+    .title {
+      font-size: 0.9rem !important;
+    }
+    .f-item-wrapper {
+      font-size: 0.75rem !important;
+    }
+  }
 }
