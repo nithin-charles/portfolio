@@ -1,9 +1,11 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { SkillSectionComponent } from '../skill-section/skill-section.component';
-import { RouterModule } from '@angular/router';
 import { SkillBlockComponent } from '../skill-block/skill-block.component';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { HomePageComponent } from '../home-page/home-page.component';
+import { WorkSectionComponent } from '../work-section/work-section.component';
+import { ContactSectionComponent } from '../contact-section/contact-section.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-landing-page',
@@ -13,44 +15,77 @@ import { HomePageComponent } from '../home-page/home-page.component';
     SkillBlockComponent,
     NavBarComponent,
     HomePageComponent,
+    WorkSectionComponent,
+    ContactSectionComponent,
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
   public navBarColor: string = 'black';
+  public currentPage: string = 'about';
+  public isMobile: boolean = false;
+  public isNavBarDisabled: boolean = false;
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .subscribe((result) => {
+        this.isMobile = result.matches;
+      });
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const homeSection = document.getElementById('home');
-    const skillSection = document.getElementById('skill');
-    const navbar = document.querySelector('app-nav-bar');
+    const aboutSection = document.getElementById('about');
+    const workSection = document.getElementById('work');
+    const contactSection = document.getElementById('contact');
 
-    if (homeSection && skillSection && navbar) {
+    if (homeSection && aboutSection && workSection && contactSection) {
       const homeRect = homeSection.getBoundingClientRect();
-      const skillRect = skillSection.getBoundingClientRect();
-
-      // if (
-      //   homeRect.top >= 0 &&
-      //   Math.floor(homeRect.bottom) <= Math.floor(window.innerHeight)
-      // ) {
-      //   this.navBarColor = 'black';
-      //   console.log(this.navBarColor);
-      // } else if (
-      //   skillRect.top >= 0 &&
-      //   Math.floor(skillRect.bottom) <= Math.floor(window.innerHeight * 1.5)
-      // ) {
-      //   this.navBarColor = 'white';
-      //   console.log(this.navBarColor);
-      // }
+      const skillRect = aboutSection.getBoundingClientRect();
+      const workRect = workSection.getBoundingClientRect();
+      const contactRect = contactSection.getBoundingClientRect();
 
       if (
+        homeRect.top >= 0 &&
+        Math.floor(homeRect.bottom) <= Math.floor(window.innerHeight)
+      ) {
+        this.isNavBarDisabled = false;
+        this.currentPage = 'about';
+        console.log(this.currentPage);
+      } else if (
         skillRect.top >= 0 &&
         Math.floor(skillRect.bottom) <= Math.floor(window.innerHeight * 1.5)
       ) {
-        this.navBarColor = 'white';
-        console.log(this.navBarColor);
-      } else {
-        this.navBarColor = 'black';
+        if (this.isMobile) {
+          this.isNavBarDisabled = true;
+        }
+        this.currentPage = 'work';
+
+        console.log(this.currentPage);
+      } else if (
+        workRect.top >= 0 &&
+        Math.floor(workRect.bottom) <= Math.floor(window.innerHeight * 1.5)
+      ) {
+        if (this.isMobile) {
+          this.isNavBarDisabled = true;
+        }
+        this.currentPage = 'contact';
+
+        console.log(this.currentPage);
+      } else if (
+        contactRect.top >= 0 &&
+        Math.floor(contactRect.bottom) <= Math.floor(window.innerHeight)
+      ) {
+        if (this.isMobile) {
+          this.isNavBarDisabled = true;
+        }
+        this.currentPage = '';
+
+        console.log(this.currentPage);
       }
     }
   }

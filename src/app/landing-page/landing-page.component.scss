@@ -1,21 +1,35 @@
-.main-container{
-    width:100%;
+.main-container {
+  width: 100%;
+  display: flex;
+  &.black {
+    background-color: black;
+    transition: background-color ease-in 0.5s;
+  }
+  &.white {
+    background-color: black;
+    transition: background-color ease-in 0.5s;
+  }
+  app-nav-bar {
+    width: 10%;
+    &.hide {
+      width: 0;
+      display: none;
+    }
+  }
+  .content-list {
     display: flex;
-    &.black{
-        background-color: black;
-        transition: background-color ease-in 0.5s;
+    flex-direction: column;
+    width: 90%;
+    &.expand {
+      width: 100%;
     }
-    &.white{
-        background-color: white;
-        transition: background-color ease-in 0.5s;
-    }
-    app-nav-bar{
-        width:10%;
-    }
-    .content-list{
-        display: flex;
-        flex-direction: column;
-        width:90%;
-    }
+  }
 }
-
+@media (max-width: 500px) {
+  app-nav-bar {
+    width: 25% !important;
+    &.isMobile {
+      width: 0 !important;
+    }
+  }
+}

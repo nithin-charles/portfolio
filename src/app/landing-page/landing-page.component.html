@@ -1,7 +1,13 @@
 <div class="main-container" [class.white]="isWhite()" [class.black]="isBlack()">
-  <app-nav-bar [bg_color]="navBarColor"></app-nav-bar>
-  <div class="content-list">
+  <app-nav-bar
+    [class.hide]="isNavBarDisabled"
+    [bg_color]="navBarColor"
+    [currentPage]="currentPage"
+  ></app-nav-bar>
+  <div class="content-list" [class.expand]="isNavBarDisabled">
     <app-home-page id="home"></app-home-page>
-    <app-skill-section id="skill"> </app-skill-section>
+    <app-skill-section id="about"> </app-skill-section>
+    <app-work-section id="work"></app-work-section>
+    <app-contact-section id="contact"></app-contact-section>
   </div>
 </div>

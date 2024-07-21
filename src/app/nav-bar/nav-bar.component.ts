@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class NavBarComponent {
   @Input() bg_color: string = 'black';
+  @Input() currentPage: string = 'about';
 
   public scrollToSection(event: Event, target: string) {
     event.preventDefault();

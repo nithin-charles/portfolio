@@ -1,177 +1,60 @@
 <div class="skill-container" id="skill-section">
-  <!-- <div class="my-skill-wrapper">
-    <div class="skill-card">My Skill</div>
-  </div> -->
-  <div class="skill-block-wrapper">
-    @if(!isMobile){
-    <div class="skill-block-container-1">
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-      <app-skill-block skill="sql"> </app-skill-block>
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
+  <div class="about-me">
+    <div class="about-me-text"><b>.../About me...</b></div>
+    <div class="about-me-desc">
+      I'm Nithin, a <b><i>full-stack developer.</i></b>
+      <br />
+      About <b><i>2 years</i></b> years experience.
     </div>
-    }
-    <div class="skill-block-container-2">
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-      <app-skill-block skill="sql"> </app-skill-block>
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
+  </div>
+  <div class="skill-collection-table">
+    <div class="skill-wrapper">
+      <div class="skill-holder">
+        <div class="front-end">
+          <div class="content-wrapper">
+            <div class="title">Front-end</div>
+            <div class="f-item-wrapper">
+              <div class="f-item">JS/</div>
+              <div class="f-item">TS/</div>
+              <div class="f-item">Angular/</div>
+              <div class="f-item">Rxjs</div>
+            </div>
+          </div>
+        </div>
+        <div class="back-end">
+          <div class="content-wrapper">
+            <div class="title">Backend-end</div>
+            <div class="f-item-wrapper">
+              <div class="f-item">C#/</div>
+              <div class="f-item">DOTNET/</div>
+              <div class="f-item">MVC/</div>
+              <div class="f-item">Web API/</div>
+            </div>
+          </div>
+        </div>
+        <div class="db">
+          <div class="content-wrapper">
+            <div class="title">Database</div>
+            <div class="f-item-wrapper">
+              <div class="f-item">MySQL/</div>
+              <div class="f-item">SQL Server/</div>
+              <div class="f-item">Mongodb</div>
+            </div>
+          </div>
+        </div>
+        <div class="hobby">
+          <div class="content-wrapper">
+            <div class="title">Hobby</div>
+            <div class="f-item-wrapper">
+              <div class="f-item">Photography/</div>
+              <div class="f-item">Graphic Design</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="skill-block-container-1">
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-      <app-skill-block skill="sql"> </app-skill-block>
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-    </div>
-    <div class="skill-block-container-2">
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-      <app-skill-block skill="sql"> </app-skill-block>
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-    </div>
-    <div class="skill-block-container-1">
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-      <app-skill-block skill="sql"> </app-skill-block>
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-    </div>
-    <div class="skill-block-container-2">
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-      <app-skill-block skill="sql"> </app-skill-block>
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-    </div>
-    <div class="skill-block-container-1">
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-      <app-skill-block skill="sql"> </app-skill-block>
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-    </div>
-    <div class="skill-block-container-2">
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
-      <app-skill-block skill="sql"> </app-skill-block>
-      <app-skill-block skill="html"> </app-skill-block>
-      <app-skill-block skill="css"> </app-skill-block>
-      <app-skill-block skill="sass"> </app-skill-block>
-      <app-skill-block skill="js"> </app-skill-block>
-      <app-skill-block skill="ts"> </app-skill-block>
-      <app-skill-block skill="angular"> </app-skill-block>
-      <app-skill-block skill="rxjs"> </app-skill-block>
-      <app-skill-block skill="c"> </app-skill-block>
-      <app-skill-block skill="csharp"> </app-skill-block>
+    <div class="image-wrapper">
+      <div class="img-holder"></div>
     </div>
   </div>
 </div>
