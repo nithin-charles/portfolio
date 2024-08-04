@@ -60,6 +60,8 @@ export class LandingPageComponent implements OnInit {
         skillRect.top >= 0 &&
         Math.floor(skillRect.bottom) <= Math.floor(window.innerHeight * 1.5)
       ) {
+        this.isNavBarDisabled = false;
+
         if (this.isMobile) {
           this.isNavBarDisabled = true;
         }
@@ -70,6 +72,7 @@ export class LandingPageComponent implements OnInit {
         workRect.top >= 0 &&
         Math.floor(workRect.bottom) <= Math.floor(window.innerHeight * 1.5)
       ) {
+        this.isNavBarDisabled = false;
         if (this.isMobile) {
           this.isNavBarDisabled = true;
         }
@@ -80,9 +83,11 @@ export class LandingPageComponent implements OnInit {
         contactRect.top >= 0 &&
         Math.floor(contactRect.bottom) <= Math.floor(window.innerHeight)
       ) {
-        if (this.isMobile) {
-          this.isNavBarDisabled = true;
-        }
+        this.isNavBarDisabled = true;
+
+        // if (this.isMobile) {
+        //   this.isNavBarDisabled = true;
+        // }
         this.currentPage = '';
 
         console.log(this.currentPage);
