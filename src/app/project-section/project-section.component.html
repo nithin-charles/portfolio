@@ -1,0 +1,37 @@
+<div class="project-section-container">
+  <div class="header">Projects</div>
+  <div class="project-grid">
+    @for (project of projects; track project.title) {
+      <div class="project-card">
+        <div class="card-header">
+          <div class="title-group">
+            <h3 class="project-title">{{ project.title }}</h3>
+            @if (project.badge) {
+              <span class="badge">{{ project.badge }}</span>
+            }
+          </div>
+          @if (project.links.length > 0) {
+            <div class="project-links">
+              @for (link of project.links; track link.label) {
+                <a [href]="link.url" target="_blank" rel="noopener noreferrer" class="link-btn">
+                  <span>{{ link.label }}</span>
+                  <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              }
+            </div>
+          }
+        </div>
+        <p class="project-desc">{{ project.description }}</p>
+        <div class="tags-wrapper">
+          @for (tag of project.tags; track tag) {
+            <span class="tag">{{ tag }}</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

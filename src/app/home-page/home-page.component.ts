@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -7,17 +7,22 @@ import { Component } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
-export class HomePageComponent {
-  public greetings: string[] = ['hi', 'Vanakam', 'bonjur', 'Hola'];
-  public greet: string = 'hi';
+export class HomePageComponent implements OnInit, OnDestroy {
+  public greetings: string[] = ['Hi', 'Vanakkam', 'Bonjour', 'Hola'];
+  public greet: string = 'Hi';
+  private timer: any;
 
-  constructor() {
-    let i = 0;
-    setInterval(() => {
-      if (i >= this.greetings.length) {
-        i = 0;
-      }
-      this.greet = this.greetings[i++];
+  ngOnInit(): void {
+    let i = 1;
+    this.timer = setInterval(() => {
+      this.greet = this.greetings[i];
+      i = (i + 1) % this.greetings.length;
     }, 2000);
+  }
+
+  ngOnDestroy(): void {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
   }
 }

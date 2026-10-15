@@ -2,64 +2,167 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 6rem 1.5rem 4rem 1.5rem;
+  box-sizing: border-box;
+
   .header {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.5rem;
+    right: 2rem;
     text-align: end;
-    margin-right: 1rem;
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: #f7f7f7;
+    font-weight: 500;
   }
+
   .work-table-wrapper {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 40%;
+    max-width: 1100px;
+    gap: 1.5rem;
+    margin: 2rem 0;
 
     .item-wrapper {
       width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
       color: #f7f7f7;
-      .item-1 {
+
+      .item {
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        border-top: 1px solid #f7f7f7;
-        padding: 1rem 0;
-        border-bottom: 1px solid #f7f7f7;
-        .item-section-1,
-        .item-section-2 {
-          width: 50%;
+        border-top: 1px solid rgba(247, 247, 247, 0.4);
+        border-bottom: 1px solid rgba(247, 247, 247, 0.4);
+        transition: all 0.3s ease;
+
+        .item-summary {
           display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          text-align: center;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.25rem 1rem;
+          cursor: pointer;
+          transition: background-color 0.25s ease, color 0.25s ease;
+
+          &:hover {
+            background-color: #f7f7f7;
+            color: #000000;
+
+            .company-location,
+            .skill {
+              color: #374151 !important;
+            }
+
+            .toggle-btn {
+              border-color: #000000 !important;
+              color: #000000 !important;
+            }
+          }
+
+          .item-section-1 {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+
+            .year {
+              font-size: 0.85rem;
+              opacity: 0.8;
+              min-width: 190px;
+            }
+
+            .company-name {
+              .company-title {
+                font-weight: 600;
+                font-size: 1.1rem;
+              }
+              .company-location {
+                font-size: 0.85rem;
+                opacity: 0.7;
+              }
+            }
+          }
+
+          .item-section-2 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1.25rem;
+            flex: 1;
+
+            .role-skills {
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+              justify-content: flex-end;
+
+              .role {
+                font-weight: 500;
+                font-size: 0.95rem;
+              }
+
+              .separator {
+                opacity: 0.5;
+              }
+
+              .skill {
+                font-size: 0.85rem;
+                opacity: 0.8;
+              }
+            }
+
+            .toggle-btn {
+              width: 28px;
+              height: 28px;
+              border: 1px solid rgba(247, 247, 247, 0.4);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.1rem;
+              font-weight: bold;
+              line-height: 1;
+              flex-shrink: 0;
+              transition: all 0.2s ease;
+            }
+          }
         }
-        .item-section-1 {
-          justify-content: space-around;
+
+        &.expanded {
+          border-color: #f7f7f7;
         }
-        .item-section-2 {
-          justify-content: center;
-        }
-        .company-name {
-          width: 50%;
-        }
-        .role {
-          text-align: center;
-        }
-        .skill {
-          text-align: center;
-        }
-        &:hover {
-          background-color: #f7f7f7;
-          color: black;
+
+        .item-details {
+          padding: 1.25rem 1.5rem 1.5rem 2rem;
+          background-color: rgba(255, 255, 255, 0.03);
+          border-top: 1px dashed rgba(255, 255, 255, 0.2);
+
+          .points-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              position: relative;
+              padding-left: 1.5rem;
+              margin-bottom: 0.75rem;
+              font-size: 0.88rem;
+              line-height: 1.6;
+              color: #d1d5db;
+
+              &::before {
+                content: "—";
+                position: absolute;
+                left: 0;
+                color: #9ca3af;
+              }
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
         }
       }
     }
@@ -67,15 +170,58 @@
 
   .work-experience {
     color: #f7f7f7;
-    align-self: self-end;
-    padding-right: 1rem;
+    align-self: flex-end;
+    padding-right: 2rem;
+    margin-top: 1.5rem;
+    text-align: right;
+
     .desc {
       font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .count {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffffff;
     }
   }
 }
-@media (max-width: 400px) {
-  .item-wrapper {
-    font-size: 0.75rem;
+
+@media (max-width: 850px) {
+  .work-section-container {
+    padding-top: 5rem;
+
+    .header {
+      font-size: 2.5rem;
+      top: 1rem;
+    }
+
+    .item-summary {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.75rem;
+
+      .item-section-1 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.25rem !important;
+
+        .year {
+          min-width: unset !important;
+          font-size: 0.75rem !important;
+        }
+      }
+
+      .item-section-2 {
+        width: 100%;
+        justify-content: space-between !important;
+
+        .role-skills {
+          justify-content: flex-start !important;
+        }
+      }
+    }
   }
 }

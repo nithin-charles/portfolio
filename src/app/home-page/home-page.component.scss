@@ -16,11 +16,60 @@
     width: 80%;
     font-family: "IBM Plex Mono", "Menlo", "DejaVu Sans Mono",
       "Bitstream Vera Sans Mono", Courier, monospace;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    line-height: 1.4;
+
+    .greet-text {
+      color: #9ca3af;
+      transition: opacity 0.3s ease;
+    }
+
+    .name-text {
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .role-badge {
+      display: inline-block;
+      width: fit-content;
+      margin-top: 1.5rem;
+      padding: 0.35rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      cursor: default;
+
+      &:hover {
+        background-color: #f7f7f7;
+        color: #000000;
+        border-color: #f7f7f7;
+      }
+    }
 
     .info {
-      padding-top: 1rem;
-      font-size: 1rem;
+      padding-top: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #9ca3af;
+      max-width: 720px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .content-wrapper {
+    font-size: 1.6rem !important;
+
+    .info {
+      font-size: 0.9rem !important;
+    }
+
+    .role-badge {
+      font-size: 0.75rem !important;
     }
   }
 }

@@ -1,21 +1,43 @@
 <div class="work-section-container">
   <div class="header">Work</div>
   <div class="work-table-wrapper">
-    <div class="item-wrapper">
-      <div class="item-1">
-        <div class="item-section-1">
-          <div class="year">2022 - Ongoing</div>
-          <div class="company-name">SOTI</div>
-        </div>
-        <div class="item-section-2">
-          <div class="role">Full-stack Developer&nbsp;|</div>
-          <div class="skill">&nbsp;Dotnet, Angular</div>
+    @for (exp of experiences; track exp.company; let i = $index) {
+      <div class="item-wrapper">
+        <div class="item" [class.expanded]="exp.expanded">
+          <div class="item-summary" (click)="toggleExpand(i)">
+            <div class="item-section-1">
+              <div class="year">{{ exp.period }}</div>
+              <div class="company-name">
+                <span class="company-title">{{ exp.company }}</span>
+                <span class="company-location"> · {{ exp.location }}</span>
+              </div>
+            </div>
+            <div class="item-section-2">
+              <div class="role-skills">
+                <span class="role">{{ exp.role }}</span>
+                <span class="separator">&nbsp;|&nbsp;</span>
+                <span class="skill">{{ exp.skills }}</span>
+              </div>
+              <div class="toggle-btn" [title]="exp.expanded ? 'Collapse' : 'Expand'">
+                {{ exp.expanded ? '−' : '+' }}
+              </div>
+            </div>
+          </div>
+          @if (exp.expanded) {
+            <div class="item-details">
+              <ul class="points-list">
+                @for (point of exp.points; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+            </div>
+          }
         </div>
       </div>
-    </div>
+    }
   </div>
   <div class="work-experience">
-    <p class="desc">Work experinece</p>
-    <p class="count">2 years</p>
+    <p class="desc">Work experience</p>
+    <p class="count">4+ years</p>
   </div>
 </div>

@@ -4,6 +4,7 @@ import { SkillBlockComponent } from '../skill-block/skill-block.component';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { WorkSectionComponent } from '../work-section/work-section.component';
+import { ProjectSectionComponent } from '../project-section/project-section.component';
 import { ContactSectionComponent } from '../contact-section/contact-section.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
@@ -16,6 +17,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
     NavBarComponent,
     HomePageComponent,
     WorkSectionComponent,
+    ProjectSectionComponent,
     ContactSectionComponent,
   ],
   templateUrl: './landing-page.component.html',
@@ -26,6 +28,7 @@ export class LandingPageComponent implements OnInit {
   public currentPage: string = 'about';
   public isMobile: boolean = false;
   public isNavBarDisabled: boolean = false;
+
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
@@ -38,59 +41,34 @@ export class LandingPageComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    const scrollPosition = window.scrollY + window.innerHeight * 0.4;
     const homeSection = document.getElementById('home');
     const aboutSection = document.getElementById('about');
     const workSection = document.getElementById('work');
+    const projectsSection = document.getElementById('projects');
     const contactSection = document.getElementById('contact');
 
-    if (homeSection && aboutSection && workSection && contactSection) {
-      const homeRect = homeSection.getBoundingClientRect();
-      const skillRect = aboutSection.getBoundingClientRect();
-      const workRect = workSection.getBoundingClientRect();
-      const contactRect = contactSection.getBoundingClientRect();
+    if (homeSection && aboutSection && workSection && projectsSection && contactSection) {
+      const contactTop = contactSection.offsetTop;
+      const projectsTop = projectsSection.offsetTop;
+      const workTop = workSection.offsetTop;
+      const aboutTop = aboutSection.offsetTop;
 
-      if (
-        homeRect.top >= 0 &&
-        Math.floor(homeRect.bottom) <= Math.floor(window.innerHeight)
-      ) {
+      if (scrollPosition >= contactTop) {
+        this.isNavBarDisabled = true;
+        this.currentPage = '';
+      } else if (scrollPosition >= projectsTop) {
+        this.isNavBarDisabled = this.isMobile;
+        this.currentPage = 'contact';
+      } else if (scrollPosition >= workTop) {
+        this.isNavBarDisabled = this.isMobile;
+        this.currentPage = 'projects';
+      } else if (scrollPosition >= aboutTop) {
+        this.isNavBarDisabled = this.isMobile;
+        this.currentPage = 'work';
+      } else {
         this.isNavBarDisabled = false;
         this.currentPage = 'about';
-        console.log(this.currentPage);
-      } else if (
-        skillRect.top >= 0 &&
-        Math.floor(skillRect.bottom) <= Math.floor(window.innerHeight * 1.5)
-      ) {
-        this.isNavBarDisabled = false;
-
-        if (this.isMobile) {
-          this.isNavBarDisabled = true;
-        }
-        this.currentPage = 'work';
-
-        console.log(this.currentPage);
-      } else if (
-        workRect.top >= 0 &&
-        Math.floor(workRect.bottom) <= Math.floor(window.innerHeight * 1.5)
-      ) {
-        this.isNavBarDisabled = false;
-        if (this.isMobile) {
-          this.isNavBarDisabled = true;
-        }
-        this.currentPage = 'contact';
-
-        console.log(this.currentPage);
-      } else if (
-        contactRect.top >= 0 &&
-        Math.floor(contactRect.bottom) <= Math.floor(window.innerHeight)
-      ) {
-        this.isNavBarDisabled = true;
-
-        // if (this.isMobile) {
-        //   this.isNavBarDisabled = true;
-        // }
-        this.currentPage = '';
-
-        console.log(this.currentPage);
       }
     }
   }
