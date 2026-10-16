@@ -1,13 +1,53 @@
 <div class="content-container">
+  <div class="hero-ambient-glow"></div>
   <div class="content-wrapper">
-    <span class="greet-text">{{ greet }}.</span>
-    <br />
-    i'm
-    <br />
-    <span class="name-text">Nithin Charles.</span>
-    <div class="role-badge">Software Development Engineer II</div>
-    <div class="info">
-      .NET Backend & Full-Stack Engineer with 4+ years of experience building scalable microservices, enterprise integrations, and dynamic Angular/React applications.
+    <div class="status-pill">
+      <span class="pulse-dot"></span>
+      <span class="status-text">Available for new opportunities</span>
+    </div>
+
+    <div class="hero-text-block">
+      <div class="greeting-line">
+        <span class="greet-text">{{ greet }}</span><span class="punct">.</span>
+      </div>
+      <div class="sub-greeting">i'm</div>
+      <h1 class="name-text">Nithin Charles<span class="accent-dot">.</span></h1>
+    </div>
+
+    <div class="role-badge">
+      <span class="badge-icon">⚡</span>
+      <span>Software Development Engineer II</span>
+      <span class="badge-divider">|</span>
+      <span class="badge-sub">.NET & Full-Stack</span>
+    </div>
+
+    <p class="info">
+      Software Development Engineer with <b>4+ years</b> of experience building high-scale .NET microservices, enterprise integrations, and dynamic Angular/React web applications.
+    </p>
+
+    <div class="cta-actions">
+      <button class="cta-btn primary" (click)="scrollToSection('work')">
+        <span>Explore Work</span>
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </button>
+
+      <button class="cta-btn secondary" (click)="scrollToSection('projects')">
+        <span>Featured Projects</span>
+      </button>
+
+      <button
+        class="cta-btn copy-btn"
+        (click)="copyEmail()"
+        [class.copied]="copiedEmail"
+        [title]="copiedEmail ? 'Email Copied!' : 'Click to copy email address'"
+      >
+        <span class="copy-icon">{{ copiedEmail ? '✓' : '✉' }}</span>
+        <span>{{ copiedEmail ? 'Email Copied!' : 's.nithincharles@gmail.com' }}</span>
+      </button>
     </div>
   </div>
 </div>
+

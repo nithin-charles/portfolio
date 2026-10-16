@@ -55,8 +55,8 @@ export class LandingPageComponent implements OnInit {
       const aboutTop = aboutSection.offsetTop;
 
       if (scrollPosition >= contactTop) {
-        this.isNavBarDisabled = true;
-        this.currentPage = '';
+        this.isNavBarDisabled = this.isMobile;
+        this.currentPage = 'home';
       } else if (scrollPosition >= projectsTop) {
         this.isNavBarDisabled = this.isMobile;
         this.currentPage = 'contact';

@@ -19,6 +19,23 @@ export class NavBarComponent {
     }
   }
 
+  public getSectionLabel(section: string): string {
+    switch (section) {
+      case 'about':
+        return 'About';
+      case 'work':
+        return 'Work';
+      case 'projects':
+        return 'Projects';
+      case 'contact':
+        return 'Contact';
+      case 'home':
+        return 'Top';
+      default:
+        return section;
+    }
+  }
+
   public isWhite(): boolean {
     return this.bg_color === 'white';
   }

@@ -1,43 +1,52 @@
 <div class="work-section-container">
-  <div class="header">Work</div>
+  <div class="section-header-row">
+    <div class="section-tag">
+      <span class="section-number">02</span>
+      <span class="slash">//</span>
+      <span class="section-name">EXPERIENCE</span>
+    </div>
+    <div class="work-summary-stat">
+      <span class="stat-label">Total Experience:</span>
+      <span class="stat-value">4+ Years</span>
+    </div>
+  </div>
+
   <div class="work-table-wrapper">
     @for (exp of experiences; track exp.company; let i = $index) {
-      <div class="item-wrapper">
-        <div class="item" [class.expanded]="exp.expanded">
-          <div class="item-summary" (click)="toggleExpand(i)">
-            <div class="item-section-1">
-              <div class="year">{{ exp.period }}</div>
-              <div class="company-name">
-                <span class="company-title">{{ exp.company }}</span>
-                <span class="company-location"> · {{ exp.location }}</span>
-              </div>
-            </div>
-            <div class="item-section-2">
-              <div class="role-skills">
-                <span class="role">{{ exp.role }}</span>
-                <span class="separator">&nbsp;|&nbsp;</span>
-                <span class="skill">{{ exp.skills }}</span>
-              </div>
-              <div class="toggle-btn" [title]="exp.expanded ? 'Collapse' : 'Expand'">
-                {{ exp.expanded ? '−' : '+' }}
-              </div>
+      <div class="item-card" [class.expanded]="exp.expanded">
+        <div class="item-summary" (click)="toggleExpand(i)">
+          <div class="company-role-block">
+            <div class="role-title">{{ exp.role }}</div>
+            <div class="company-meta">
+              <span class="company-name">{{ exp.company }}</span>
+              <span class="meta-dot">·</span>
+              <span class="location">{{ exp.location }}</span>
             </div>
           </div>
-          @if (exp.expanded) {
-            <div class="item-details">
-              <ul class="points-list">
-                @for (point of exp.points; track point) {
-                  <li>{{ point }}</li>
-                }
-              </ul>
+
+          <div class="right-meta-block">
+            <div class="period-pill">{{ exp.period }}</div>
+            <div class="toggle-btn" [title]="exp.expanded ? 'Collapse details' : 'Expand details'">
+              <span>{{ exp.expanded ? '−' : '+' }}</span>
             </div>
-          }
+          </div>
         </div>
+
+        <div class="skills-row">
+          <span class="skills-label">Core Tech:</span>
+          <span class="skills-pill">{{ exp.skills }}</span>
+        </div>
+
+        @if (exp.expanded) {
+          <div class="item-details">
+            <ul class="points-list">
+              @for (point of exp.points; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+          </div>
+        }
       </div>
     }
-  </div>
-  <div class="work-experience">
-    <p class="desc">Work experience</p>
-    <p class="count">4+ years</p>
   </div>
 </div>

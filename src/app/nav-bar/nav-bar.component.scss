@@ -1,90 +1,190 @@
 .nav-bar-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
-  gap: 2rem;
   position: sticky;
   top: 0;
-  & > :first-child {
-    padding-top: 3rem;
-  }
+  padding: 3rem 0 2rem 0;
+  box-sizing: border-box;
+  background-color: rgba(9, 9, 11, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  z-index: 50;
 
-  .icon-wrapper .linkedin {
-    width: 15px;
-    height: 15px;
-  }
+  .icons-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
 
-  .icon-wrapper .github {
-    width: 18px;
-    height: 18px;
-  }
+    .icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
 
-  .icon-wrapper .mail {
-    width: 20px;
-    height: 20px;
-  }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9ca3af;
+        transition: all 0.2s ease;
+      }
 
-  .icon-wrapper .instagram {
-    width: 20px;
-    height: 20px;
-  }
+      svg {
+        fill: #9ca3af;
+        transition: all 0.2s ease;
+      }
 
-  &.bg-black {
-    color: white;
-    .icon-wrapper .instagram,
-    .linkedin,
-    .github,
-    .mail {
-      fill: white;
-    }
-  }
-  &.bg-white {
-    color: white;
-    .icon-wrapper .instagram,
-    .linkedin,
-    .github,
-    .mail {
-      fill: white;
+      .linkedin {
+        width: 15px;
+        height: 15px;
+      }
+
+      .github {
+        width: 17px;
+        height: 17px;
+      }
+
+      .mail {
+        width: 18px;
+        height: 18px;
+      }
+
+      .instagram {
+        width: 18px;
+        height: 18px;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(1.1);
+
+        svg, a {
+          fill: #ffffff;
+          color: #ffffff;
+        }
+      }
     }
   }
 
   .skill-section-navigator {
-    bottom: 0px;
-    position: fixed;
-    height: 200px;
-    width: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-
     cursor: pointer;
-    .nav-wrapper {
-      position: fixed;
-      bottom: 0;
-      margin-left: 1rem;
-      .navigation-link {
-        color: white;
-        font-size: 0.75rem;
-        text-decoration: none;
-        position: fixed;
-        bottom: 70px;
+    user-select: none;
+    margin-bottom: 1.5rem;
+    transition: transform 0.25s ease;
+
+    .nav-interactive-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+
+      .section-icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #d1d5db;
+        transition: all 0.25s ease;
+
+        .section-svg {
+          width: 16px;
+          height: 16px;
+          transition: transform 0.25s ease;
+        }
+      }
+
+      .nav-label-box {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        .navigation-link {
+          color: #9ca3af;
+          font-size: 0.7rem;
+          letter-spacing: 0.5px;
+          text-transform: capitalize;
+          transition: color 0.2s ease;
+        }
+
+        .nav-direction-arrow {
+          font-size: 0.7rem;
+          color: #818cf8;
+          transition: transform 0.2s ease;
+        }
       }
 
       .line {
-        height: 60px;
+        height: 55px;
         width: 2px;
-        background-color: rgb(75, 75, 75);
-        margin-top: 12px;
+        background-color: rgba(255, 255, 255, 0.15);
         position: relative;
         overflow: hidden;
+        border-radius: 9999px;
+        transition: all 0.25s ease;
+
         .light {
-          height: 50px;
+          height: 35px;
           width: 100%;
-          background-color: white;
+          background: linear-gradient(to bottom, transparent, #818cf8, transparent);
           position: absolute;
           top: 0;
           left: 0;
-          animation: moveLight 1.5s linear infinite;
+          animation: moveLight 1.8s linear infinite;
+        }
+
+        &.is-up .light {
+          background: linear-gradient(to top, transparent, #818cf8, transparent);
+          animation: moveLightUp 1.8s linear infinite;
+        }
+      }
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+
+      .section-icon-btn {
+        background: #ffffff;
+        color: #09090b;
+        border-color: #ffffff;
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+
+        .section-svg {
+          transform: scale(1.12);
+        }
+      }
+
+      .nav-label-box {
+        .navigation-link {
+          color: #ffffff;
+        }
+
+        .nav-direction-arrow {
+          color: #ffffff;
+          transform: translateY(2px);
+        }
+      }
+
+      .line {
+        width: 3px;
+        background-color: rgba(255, 255, 255, 0.35);
+
+        .light {
+          animation-duration: 0.9s;
         }
       }
     }
@@ -94,9 +194,18 @@
     0% {
       top: -100%;
     }
-
     100% {
       top: 100%;
     }
   }
+
+  @keyframes moveLightUp {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: -100%;
+    }
+  }
 }
+

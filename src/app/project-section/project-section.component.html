@@ -1,5 +1,15 @@
 <div class="project-section-container">
-  <div class="header">Projects</div>
+  <div class="section-header-row">
+    <div class="section-tag">
+      <span class="section-number">03</span>
+      <span class="slash">//</span>
+      <span class="section-name">FEATURED PROJECTS</span>
+    </div>
+    <div class="projects-subtitle">
+      Open-source developer tools, AI workflows, and modern web applications.
+    </div>
+  </div>
+
   <div class="project-grid">
     @for (project of projects; track project.title) {
       <div class="project-card">
@@ -7,9 +17,13 @@
           <div class="title-group">
             <h3 class="project-title">{{ project.title }}</h3>
             @if (project.badge) {
-              <span class="badge">{{ project.badge }}</span>
+              <span class="badge">
+                <span class="badge-dot"></span>
+                <span>{{ project.badge }}</span>
+              </span>
             }
           </div>
+
           @if (project.links.length > 0) {
             <div class="project-links">
               @for (link of project.links; track link.label) {
@@ -25,7 +39,9 @@
             </div>
           }
         </div>
+
         <p class="project-desc">{{ project.description }}</p>
+
         <div class="tags-wrapper">
           @for (tag of project.tags; track tag) {
             <span class="tag">{{ tag }}</span>
